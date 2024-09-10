@@ -12,7 +12,7 @@ class Customer:
         if type(name)==str and 1<=len(name)<=15: #set customer name to a string of length 1 to 15
             self._name=name
         else:
-            raise ValueError
+            raise ValueError("Names must be btn 1 & 15")
 
     def orders(self): #returns orders by a specific customer
         return [order for order in Customer.customer_orders  if order.customer==self]

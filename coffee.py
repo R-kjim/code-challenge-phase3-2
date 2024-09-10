@@ -1,7 +1,7 @@
 class Coffee:
     coffee_orders=[]
     def __init__(self,name):
-        self._name=name
+        self.name=name
     
     @property
     def name(self):
@@ -14,7 +14,7 @@ class Coffee:
         if type(name)==str and len(name)>=3:
             self._name=name
         else:
-            raise ValueError
+            raise ValueError("Coffee name has to be a string of length greater than or equal to 3")
 
     
     def orders(self): #returns a list of all orders for that coffee

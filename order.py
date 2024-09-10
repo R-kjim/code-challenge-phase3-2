@@ -6,7 +6,7 @@ class Order:
     def __init__(self,customer,coffee,price):
         self.customer=customer
         self.coffee=coffee
-        self.price=price
+        self.price=price 
         Order.all.append(self)
         Coffee.coffee_orders.append(self)
         Customer.customer_orders.append(self)
@@ -27,7 +27,6 @@ class Order:
     
     @coffee.setter
     def coffee(self,coffee):
-        
         if isinstance(coffee,Coffee):
             self._coffee=coffee
         else:
@@ -41,8 +40,10 @@ class Order:
     def price(self,price):
         if hasattr(self,"_price"):
             raise AttributeError
-        if type(price)==float and 1.0<=price<=10.0:
+        if isinstance(price,float) and 1.0<=price<=10.0:
             self._price=price
+        else:
+            raise ValueError("price has to be a float between 1.0 and 10.0")
 
 
 
